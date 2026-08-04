@@ -1,16 +1,19 @@
 import pandas as pd
+import os
 
 ruta = "csv_BaseDatos/Base_estadistica_matricula_UEP_15_23.csv"
+ruta_temp = "csv_BaseDatos/Base_estadistica_matricula_UEP_15_23_temp.csv"
+
 df = pd.read_csv(ruta, encoding="latin-1")
 
-# Cambiar el nombre de la carrera
 df.loc[
-    (df["NOMBRE_IES"] == "ESCUELA POLITECNICA NACIONAL") &
-    (df["NOMBRE_CARRERA"] == "INGENIERIA GEOLOGICA"),
+    (df["NOMBRE_IES"] == "UNIVERSIDAD CASA GRANDE") &
+    (df["NOMBRE_CARRERA"] == "COMUNICACION SOCIAL CON MENCION EN MARKETING Y GESTION EMPRESARIAL"),
     "NOMBRE_CARRERA"
-] = "INGENIERIA GEOLOGICA"
+] = "MERCADOTECNIA"
 
+# Escribir primero al archivo temporal
+df.to_csv(ruta_temp, index=False, encoding="latin-1")
 
-
-# Guardar el CSV actualizado
-df.to_csv(ruta, index=False, encoding="latin-1")
+# Solo si terminó correctamente, reemplazar el original
+os.replace(ruta_temp, ruta)
