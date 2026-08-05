@@ -7,10 +7,10 @@ ruta_temp = "csv_BaseDatos/Base_estadistica_matricula_UEP_15_23_temp.csv"
 df = pd.read_csv(ruta, encoding="latin-1")
 
 df.loc[
-    (df["NOMBRE_IES"] == "UNIVERSIDAD CASA GRANDE") &
-    (df["NOMBRE_CARRERA"] == "COMUNICACION SOCIAL CON MENCION EN MARKETING Y GESTION EMPRESARIAL"),
+    (df["NOMBRE_IES"] == "ESCUELA SUPERIOR POLITECNICA DEL LITORAL") &
+    (df["NOMBRE_CARRERA"] == "LICENCIATURA EN SISTEMAS DE INFORMACION"),
     "NOMBRE_CARRERA"
-] = "MERCADOTECNIA"
+] = "COMPUTACION"
 
 # Escribir primero al archivo temporal
 df.to_csv(ruta_temp, index=False, encoding="latin-1")
