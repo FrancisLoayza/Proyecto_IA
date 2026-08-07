@@ -26,10 +26,10 @@ resultado = (
       .sort_values(["UNIVERSIDAD", "CARRERA", "ANIO"])
 )
 
-Espol = resultado[resultado["UNIVERSIDAD"] == "UNIVERSIDAD POLITECNICA SALESIANA"]
-analisis1 = Espol[Espol["CARRERA"] == "INGENIERIA DE SISTEMAS"]
-analisis2= Espol[Espol["CARRERA"] == "INGENIERIA EN SISTEMAS"]
-analisis3= Espol[Espol["CARRERA"] == "COMPUTACION"]
+Espol = resultado[resultado["UNIVERSIDAD"] == "UNIVERSIDAD TECNICA ESTATAL DE QUEVEDO"]
+analisis1 = Espol[Espol["CARRERA"] == "ADMINISTRACION DE EMPRESAS"]
+analisis2= Espol[Espol["CARRERA"] == "INGENIERIA COMERCIAL"]
+analisis3= Espol[Espol["CARRERA"] == "SOFTWARE"]
 print(analisis1[["UNIVERSIDAD", "CARRERA", "ANIO", "MATRICULA"]].to_string(index=False))
 print(analisis2[["UNIVERSIDAD", "CARRERA", "ANIO", "MATRICULA"]].to_string(index=False))
 print(analisis3[["UNIVERSIDAD", "CARRERA", "ANIO", "MATRICULA"]].to_string(index=False))
